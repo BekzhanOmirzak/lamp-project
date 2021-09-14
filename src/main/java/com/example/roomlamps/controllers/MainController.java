@@ -3,6 +3,7 @@ package com.example.roomlamps.controllers;
 
 import com.example.roomlamps.entities.Room;
 import com.example.roomlamps.services.RoomService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,13 @@ import java.util.List;
 public class MainController {
 
 
-    @Autowired
     private RoomService roomService;
+
+    @Autowired
+    public MainController(RoomService roomService){
+         this.roomService=roomService;
+    }
+
 
     @Autowired
     private SimpMessagingTemplate template;
@@ -30,21 +36,21 @@ public class MainController {
     @GetMapping("/rooms")
     @ResponseBody
     @CrossOrigin
-    private List<Room> getListOfRooms() {
+    public List<Room> getListOfRooms() {
         return roomService.getListOfRooms();
     }
 
     @PostMapping("/create")
     @CrossOrigin
     @ResponseBody
-    private String createRoom(@RequestBody Room room) {
+    public String createRoom(@RequestBody Room room) {
         return roomService.createRoom(room);
     }
 
     @GetMapping("room/{id}")
     @ResponseBody
     @CrossOrigin
-    private Room getRoomById(@PathVariable Long id) {
+    public Room getRoomById(@PathVariable Long id) {
         return roomService.getRoomById(id);
     }
 

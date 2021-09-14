@@ -8,6 +8,7 @@ class RoomLampsApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

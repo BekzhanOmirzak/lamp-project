@@ -3,17 +3,17 @@ package com.example.roomlamps.services;
 
 import com.example.roomlamps.entities.Room;
 import com.example.roomlamps.repositories.RoomRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
 @Service
 public class RoomService {
 
 
-    @Autowired
     private RoomRepo roomRepo;
 
 
@@ -40,8 +40,6 @@ public class RoomService {
         roomRepo.save(room);
         return room;
     }
-
-
 
 
 }

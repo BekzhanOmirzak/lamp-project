@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -35,19 +37,44 @@ class RoomRepoTest {
     }
 
     @Test
+    void shouldNotGetRoomByCountryAndName() {
+        //given
+        Room room = new Room();
+        room.setName("First Room");
+        room.setCountry("Taiwan");
+
+        //when
+        roomRepo.save(room);
+        Optional<Room> optionalRoom = roomRepo.getRoomByCountryAndName("Kazakhstan", room.getName());
+
+        assertThat(optionalRoom.isPresent()).isFalse();
+    }
+
+    @Test
     void shouldFindRoomById() {
         //given
         Room room = new Room();
         room.setName("First Room");
         room.setCountry("Taiwan");
         roomRepo.save(room);
+        room=roomRepo.findAll().get(0);
+        Optional<Room> foundRoom = roomRepo.findById(room.getId());
+        assertThat(foundRoom.isPresent()).isEqualTo(true);
 
-        Room foundRoom = roomRepo.getById(1L);
-
-        assertThat(foundRoom).isEqualTo(room);
     }
 
-    
+    @Test
+    void shouldNotFindRoomById() {
+        //given
+        Room room = new Room();
+        room.setName("First Room");
+        room.setCountry("Taiwan");
+        roomRepo.save(room);
+        Optional<Room> foundRoom = roomRepo.findById(2L);
+
+        assertThat(foundRoom.isPresent()).isEqualTo(false);
+
+    }
 
 
 
