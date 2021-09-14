@@ -1,0 +1,134 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 50px;
+    display: flex;
+}
+
+.container {
+    display: flex;
+}
+
+.left {
+    margin: 20px;
+}
+
+.right {
+    margin: 20px;
+}
+
+.room-lamp {
+    color: white;
+    background-color: greenyellow;
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+
+.create-room button {
+    color: white;
+    background-color: blue;
+    border-width: 0;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+table {
+    margin-top: 10px;
+}
+
+table td button {
+    color: white;
+    background-color: indianred;
+    border-width: 0;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin: 2px 0;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+.data {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.data input {
+    margin-top: 3px;
+    width: 100%;
+    font-size: 17px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
+table th, td {
+    padding: 0 10px;
+}
+
+.create-room {
+    justify-content: center;
+    display: flex;
+}
+
+
+.lamp {
+    height: 50px;
+    background-color: red;
+    width: 50px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.lamp_wrapper {
+    display: flex;
+}
+
+
+.lamp_wrapper button {
+    height: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin: 25px;
+    border-radius: 10px;
+}
+
+.hasAccess{
+    display: none;
+}
+
+.forbidden {
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
